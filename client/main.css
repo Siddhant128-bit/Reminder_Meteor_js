@@ -1,0 +1,167 @@
+body {
+  padding: 10px;
+  font-family: sans-serif;
+}
+[name=todoItem]{
+    border:none;
+    font-family: "Times New Roman";
+    font-size: 100%;
+    padding:0.15em;
+}
+[name=todoItem]:hover{
+    background-color: #f9f9f9;
+    cursor:pointer;
+}
+[name=todoItem]:focus{
+    background-color: #f9f9f9;
+    cursor:default;
+    outline:none;
+}
+.checked{
+    background-color:#f0f0f0;
+    color:#666;
+}
+.checked [name=todoItem]{
+    text-decoration: line-through;
+}
+
+.checked [name=todoItem],
+.checked [name=todoItem]:hover,
+.checked [name=todoItem]:focus{
+    background-color:#f0f0f0;
+}
+.Top_left_logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10%;
+  height:7%;
+  color: white;
+  background-color: #333333;
+}
+
+.Top_left_logo:hover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10%;
+  height:7%;
+  color: white;
+  background-color: #111111;
+}
+
+.header_all_pages{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:7%;
+  background-color: #333333;
+}
+
+.header_options{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  color: white;
+  background-color: #0000f3;
+}
+
+.options_Top_right{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+
+.Register-Complete-Page{
+  margin-top: 0;
+}
+.left-register{
+  position: fixed;
+  padding:20px;
+  margin-top:20px;
+  left:0px;
+  top:4%;
+  width:30%;
+  color: #ffffff;
+  border-color: white;
+  border-width: 10px;
+  background-color: #111111;
+}
+.left-register:hover{
+  background-color: #333333;
+}
+.right-register{
+  position: fixed;
+  padding:20px;
+  margin-top:20px;
+  right:0px;
+  top:4%;
+  width:65%;
+  text-align: right;
+  color: #ffffff;
+  border-color: white;
+  border-width: 10px;
+  background-color: #111111;
+}
+.right-register:hover{
+  background-color: #333333;
+}
+.submit_btn{
+  background-color: gray;
+  width:100px;
+  height:50px;
+  border-radius:10%;
+}
+.submit_btn:hover{
+  background-color: Darkgray;
+}
+.login-div{
+  position:absolute;
+  border-radius: 10%;
+  color:white;
+  left:35%;
+  top:35%;
+  padding:10px;
+  background-color:#111111;
+}
+
+.login-div:hover{
+  background-color:#333333;
+}
+
+.Login-Parent-div{
+  position:fixed;
+  width:100%;
+  height:100%;
+}
+
+.Home_Page_full{
+  position: fixed;
+  padding:20px;
+  margin-top:20px;
+  top:5%;
+  left:0%;
+  width:100%;
+  height:100%;
+  background-color:#999999;
+}

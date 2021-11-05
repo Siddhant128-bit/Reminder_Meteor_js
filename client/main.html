@@ -1,0 +1,133 @@
+<head>
+    <title>Reminder</title>
+</head>
+<body>
+
+</body>
+
+<!--homepage were all the actual stuff exists which changes when logged in and when not logged in-->
+<template name="home">
+  <div class="Home_Page_full">
+    {{#if currentUser}}
+      <h2>Hello {{ account.username}}!! Welcome to Reminder</h2>
+      {{> todos}}
+    {{else}}
+        <h1>Welcome to the Reminder Application.</h1>
+    {{/if}}
+  </div>
+</template>
+
+<!--template of the functional part of the app which stores records and can be marked as completed or not-->
+<template name="todos">
+  {{> addTodo}}
+  <ul>
+    {{#each todo}}
+      <li>{{> todoItem}}</li>
+    {{/each}}
+  </ul>
+  {{> CounterTodo}}
+</template>
+
+<template name="todoItem">
+    <li class="{{checked}}">
+      <input type="checkbox" {{checked}}>
+      <input type="text" value="{{name}}" name="todoItem">
+      [<a href="#" class="delete-todo">Delete</a>]
+    </li>
+</template>
+
+
+<template name="addTodo">
+    <form>
+        Create a task:
+        <input type="text" placeholder="Type a task here..." name="todoName">
+    </form>
+</template>
+
+<template name="CounterTodo">
+    <p> You have completed {{Done}} task out of {{All}} </p>
+</template>
+
+
+<!--Register screen for registering on the database for user login-->
+<template name="register">
+  <div class="Register-Complete-Page">
+    <div class="left-register">
+      <h2>Register</h2>
+      <form class="register">
+        <p>Name: <br> <input type="text" name="name_user" style="color:white; border:none; background-color:black; border-bottom: 2px solid white; height:30px;width:300px;"></p>
+        <p>Contact Number: <br> <input type="text" name="contact" style="color:white; border:none; background-color:black; border-bottom: 2px solid white; height:30px;width:300px;"></p>
+        <p>Email: <br> <input type="email" name="email" style="color:white;border:none; background-color:black; border-bottom: 2px solid white; height:30px;width:300px;"></p>
+        <p>Password:<br> <input type="password" name="password" style="color:white;border:none; background-color:black; border-bottom: 2px solid white;height:30px;width:300px;"></p>
+        <p><input type="submit" value="Register" class="submit_btn"></p>
+      </form>
+      <br>
+      <h5>"Time and Tide waits for no man"-Geoffrey Chaucer</h5>
+      <h6> So Remember everything before time flies away with us </h6>
+      <img src="clock_timelapse.gif">
+    </div>
+    <div class="right-register">
+      <h2> Information about Register</h2>
+      {{> informationReminder}}
+    </div>
+  </div>
+</template>
+
+<template name="Detail">
+  <h1> About user </h1>
+  <p>Name: {{Name}}</p>
+  <p>Number: {{Number}}</p>
+  <p>Password: {{Password}}</p>
+  <p>Email ID: {{Email}}</p>
+</template>
+
+<!--Login screen for logging into the database for user login-->
+<template name="login">
+  <div class="Login-Parent-div">
+    <div class="login-div">
+      <h2>Login</h2>
+      <form class="login">
+        <p>Email: <br> <input type="email" name="email" style="color:white;border:none; background-color:black; border-bottom: 2px solid white; height:30px;width:300px;"></p>
+        <p>Password:<br> <input type="password" name="password" style="color:white;border:none; background-color:black; border-bottom: 2px solid white;height:30px;width:300px;"></p>
+        <p><input type="submit" value="Login" class="submit_btn"></p>
+      </form>
+    </div>
+  </div>
+</template>
+
+<!--These will be present throughout all templates so used it as header/footer would be good -->
+<template name="main">
+  <div class="header_all_pages">
+    <div class="Top_left_logo">
+      <h2><a href="{{pathFor route='home'}}" style="color: white;text-decoration: none;">Reminder</a></h2>
+    </div>
+    <div class="header_options">
+      {{>navigation}}
+    </div>
+  </div>
+    {{> yield}}
+</template>
+
+<!--template used to navigate between all the options provided on the header-->
+<template name="navigation">
+    <ul class="options_Top_right">
+        <li><a href="{{pathFor route='home'}}">Home</a></li>
+        {{#if currentUser}}
+            <li><a href={{pathFor route='Detail'}}>Details</a></li>
+            <li><a href="#" class="logout">Logout</a></li>
+        {{else}}
+            <li><a href="{{pathFor route='register'}}">Register</a></li>
+            <li><a href="{{pathFor route='login'}}">Login</a></li>
+        {{/if}}
+    </ul>
+</template>
+
+<template name="informationReminder">
+  <div class="owl-carousel" style="padding:10px; border-color: white;">
+    <div class="item"><img src="1.png" alt="Information_abt_image" width="60px" height="600px"></div>
+    <div class="item"><img src="2.png" alt="Information_abt_image" width="60px" height="600px"></div>
+    <div class="item"><img src="3.png" alt="Information_abt_image" width="60px" height="600px"></div>
+    <div class="item"><img src="4.png" alt="Information_abt_image" width="60px" height="600px"></div>
+    <div class="item"><img src="5.png" alt="Information_abt_image" width="60px" height="600px"></div>
+  </div>
+</template>
