@@ -80,7 +80,7 @@ Template.todoItem.helpers({
 //Helper function to count the total number of To Do
 Template.CounterTodo.helpers({
     'All': function(){
-        return Todos.find().count() //getting all the records in the To Do
+        return Todos.find({userid: Meteor.userId()}).count() //getting all the records in the To Do
     },
     'Done': function(){
         return Todos.find({ completed: true }).count(); //find all records where completed =True
@@ -173,6 +173,12 @@ Template.informationReminder.onRendered(function() {
     // do something here
     alert('Some form of error')
   });
+});
+
+Template.home.helpers({
+  'Name': function(){
+    return User.find({email: Meteor.users.findOne({ _id: Meteor.userId() }).emails[0].address}).fetch()[0].name;
+  },
 });
 
 //details page that gives the detail of the user information

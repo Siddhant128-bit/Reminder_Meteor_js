@@ -7,40 +7,59 @@
 
 <!--homepage were all the actual stuff exists which changes when logged in and when not logged in-->
 <template name="home">
-  <div class="Home_Page_full">
+  <div class="Page_full">
     {{#if currentUser}}
-      <h2>Hello {{ account.username}}!! Welcome to Reminder</h2>
+      <h2>Hello {{Name}}!! Welcome to Reminder</h2>
       {{> todos}}
     {{else}}
-        <h1>Welcome to the Reminder Application.</h1>
+      <div class="Home_Page_top">
+        <p class="Reminder_Description"> This app is used to set various Reminder<br> list which can be revisted later to verify if those acts have been accomplished<br> or not We Respect your privacy <br>so your Reminder are visible to you alone and noone else </p>
+        <h1 class="Title_text">Reminder</h1>
+      </div>
+      <div class="Home_Page_buttom" >
+        <div class="Home_Page_Butom_center" onclick="location.href='{{pathFor route='login'}}'">
+          <p style=" position:relative; top:80%; font-size: 20px; color:white;"> <b> Login:</b> <br> Enter Credentials &<br> Begin </p>
+          <img class="Logo_Home" src="Login_Logo.png">
+        </div>
+        <div class="Home_Page_Buttom_left" onclick="location.href='{{pathFor route='register'}}'">
+            <p style=" position:relative; top:80%; font-size: 20px; color:white;"> <b> Register:</b> <br> Create account with new<br> Information </p>
+            <img class="Logo_Home" src="Register_Logo.png">
+        </div>
+        <div class="Home_Page_buttom_right" onclick="location.href='{{pathFor route='Detail'}}'">
+          <p style=" position:relative; top:80%; font-size: 20px; color:white;"> <b> About us:</b> <br> Get Information<br>About us and contact us </p>
+          <img class="Logo_Home" src="About_us.png">
+        </div>
+      </div>
     {{/if}}
   </div>
 </template>
 
 <!--template of the functional part of the app which stores records and can be marked as completed or not-->
 <template name="todos">
-  {{> addTodo}}
-  <ul>
-    {{#each todo}}
-      <li>{{> todoItem}}</li>
-    {{/each}}
-  </ul>
-  {{> CounterTodo}}
+  <div class="login-div">
+    {{> addTodo}}
+    <ul>
+      {{#each todo}}
+        <li>{{> todoItem}}</li>
+      {{/each}}
+    </ul>
+    {{> CounterTodo}}
+  </div>
 </template>
 
 <template name="todoItem">
     <li class="{{checked}}">
-      <input type="checkbox" {{checked}}>
-      <input type="text" value="{{name}}" name="todoItem">
-      [<a href="#" class="delete-todo">Delete</a>]
+      <input type="checkbox" class="checkbox" {{checked}}>
+      <input type="text" value="{{name}}" name="todoItem" style="color:white;border:none; background-color:black; border-bottom: 2px solid white;height:30px;width:300px;">
+      <a href="#" class="delete-todo">Delete</a>
     </li>
 </template>
 
 
 <template name="addTodo">
     <form>
-        Create a task:
-        <input type="text" placeholder="Type a task here..." name="todoName">
+        <p style="font-size:30px;">Add Task:</p>
+        <input type="text" placeholder="Type a task here..." name="todoName" style="color:white;border:none; background-color:black; border-bottom: 2px solid white;height:30px;width:300px;">
     </form>
 </template>
 
@@ -74,16 +93,24 @@
 </template>
 
 <template name="Detail">
-  <h1> About user </h1>
-  <p>Name: {{Name}}</p>
-  <p>Number: {{Number}}</p>
-  <p>Password: {{Password}}</p>
-  <p>Email ID: {{Email}}</p>
+  <div class="Page_full">
+    {{#if currentUser}}
+      <h1> About user </h1>
+      <p>Name: {{Name}}</p>
+      <p>Number: {{Number}}</p>
+      <p>Password: {{Password}}</p>
+      <p>Email ID: {{Email}}</p>
+    {{else}}
+      <h1> About Creater </h1>
+      <p> Developed By Siddhant Sharma<br> This is nothing but demo of what can be done if given enough time span to a confident developer.<br> This webpage was developed in time span of 2 days from 11-3 to 11-4. <br><br> <b> Contact Creator</b> <br> Email:  siddhant.sharma1974@gmail.com <br> Mobile:  9802030171.</p>
+    {{/if}}
+  </div>
 </template>
 
 <!--Login screen for logging into the database for user login-->
 <template name="login">
-  <div class="Login-Parent-div">
+  <div class="Page_full">
+    <img src="signin_background.gif" class="signin_gif">
     <div class="login-div">
       <h2>Login</h2>
       <form class="login">
@@ -111,13 +138,13 @@
 <!--template used to navigate between all the options provided on the header-->
 <template name="navigation">
     <ul class="options_Top_right">
-        <li><a href="{{pathFor route='home'}}">Home</a></li>
+        <li class="top_options"><a href="{{pathFor route='home'}}">Home</a></li>
         {{#if currentUser}}
-            <li><a href={{pathFor route='Detail'}}>Details</a></li>
-            <li><a href="#" class="logout">Logout</a></li>
+            <li class="top_options"><a href={{pathFor route='Detail'}}>Details</a></li>
+            <li class="top_options"><a href="#" class="logout">Logout</a></li>
         {{else}}
-            <li><a href="{{pathFor route='register'}}">Register</a></li>
-            <li><a href="{{pathFor route='login'}}">Login</a></li>
+            <li class="top_options"><a href="{{pathFor route='register'}}">Register</a></li>
+            <li class="top_options"><a href="{{pathFor route='login'}}">Login</a></li>
         {{/if}}
     </ul>
 </template>

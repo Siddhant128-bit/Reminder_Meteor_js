@@ -76,11 +76,11 @@ body {
   background-color: #333333;
 }
 
-li {
+.top_options {
   float: left;
 }
 
-li a {
+.top_options a {
   display: block;
   color: white;
   text-align: center;
@@ -88,7 +88,7 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+.top_options a:hover {
   background-color: #111111;
 }
 
@@ -149,19 +149,162 @@ li a:hover {
   background-color:#333333;
 }
 
-.Login-Parent-div{
-  position:fixed;
-  width:100%;
-  height:100%;
-}
 
-.Home_Page_full{
+.Page_full{
   position: fixed;
-  padding:20px;
+  padding:50px;
   margin-top:20px;
-  top:5%;
+  top:4%;
   left:0%;
   width:100%;
   height:100%;
-  background-color:#999999;
+  color:white;
+  background-color:#111111;
+}
+.Home_Page_top{
+  position: fixed;
+  padding:50px;
+  margin-top:20px;
+  color:white;
+  top:4%;
+  left:0%;
+  width:100%;
+  height:30%;
+}
+.Title_text{
+  position:fixed;
+  padding-top: 50px;
+  text-align: center;
+  width:40%;
+  height:10%;
+  top:3%;
+  left: 30%;
+  transition: left ease 10s;
+  font-size: 50px;
+  background-color: #111111;
+  border-radius: 15%;
+}
+.Reminder_Description{
+  position:fixed;
+  text-align: center;
+  padding-top: 30px;
+  top:5%;
+  left:35%;
+  width:30%;
+  height:15%;
+  background-color: #333333;
+  transition: top ease 1.5s;
+  font-size: 15px;
+}
+.Reminder_Description:hover{
+  top:20%;
+  color: white;
+  transition:top ease 0.5s
+}
+.Home_Page_buttom{
+  position: fixed;
+  padding-top:10px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom: 20px;
+  top:45%;
+  left:0%;
+  width:98%;
+  height:70%;
+  border-style: solid;
+  border-color: white;
+  border-width: thin;
+  transition: top ease 1.5s;
+  background-color: #111111;
+}
+
+.Home_Page_buttom:hover{
+  top:25%;
+  transition: top ease 1.5s;
+  background-color: #333333;
+}
+.Home_Page_Buttom_left{
+  position:fixed;
+  border-style: solid;
+  border-color:white;
+  padding-right:10px;
+  padding-bottom: 10px;
+  width:20%;
+  height:70%;
+  background-color: #111111;
+  transition:0.5s;
+}
+.Home_Page_Buttom_left:hover{
+  background-color: #333333;
+  width:30%;
+  transition:0.5s;
+}
+
+.Logo_Home{
+  position:relative;
+  padding-bottom: 30px;
+  background-color:#111111;
+  top:10%;
+  width:100%;
+  height:60%;
+  transition: top ease 1.5s;
+}
+.Logo_Home:hover{
+  top:-10%;
+  background-color:#333333;
+  transition:1.5s;
+}
+.Home_Page_Butom_center{
+  position:fixed;
+  border-style: solid;
+  border-color:white;
+  margin-left:300px;
+  left:15%;
+  width:20%;
+  height:70%;
+  background-color: #111111;
+  transition:0.5s;
+}
+.Home_Page_Butom_center:hover{
+  background-color: #333333;
+  width:30%;
+  transition:0.5s;
+}
+.Home_Page_buttom_right{
+  position:fixed;
+  border-style: solid;
+  border-color:white;
+  margin-left:300px;
+  left:48%;
+  width:20%;
+  height:70%;
+  background-color: #111111;
+  transition:0.5s;
+}
+.Home_Page_buttom_right:hover{
+  background-color: #333333;
+  width:30%;
+  transition:0.5s;
+}
+.signin_gif{
+  position:relative;
+  top:-8%;
+  left:-15%;
+  width:120%;
+  height: 120%;
+}
+.delete-todo{
+  position:relative;
+  background-color: #111111;
+  text-decoration: none;
+  color: white;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 30%;
+  border-color: white;
+  width:150px;
+  height:20px;
+}
+.delete-todo:hover{
+  background-color: red;
 }
